@@ -1358,4 +1358,222 @@ h1, h2, h3, h4, h5, h6 {
     .cta-action {
         padding: var(--spacing-lg);
     }
+}
+
+/* Learning Outcomes Section Styles */
+.learning-outcomes {
+    padding: var(--spacing-xxl) 0;
+    background: var(--white);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+.outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.outcome-card {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--background);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.outcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.outcome-icon {
+    font-size: 2rem;
+    line-height: 1;
+    padding-top: 4px;
+}
+
+.outcome-content h3 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.outcome-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add animation delay for each card */
+.outcome-card:nth-child(1) { animation-delay: 0.1s; }
+.outcome-card:nth-child(2) { animation-delay: 0.2s; }
+.outcome-card:nth-child(3) { animation-delay: 0.3s; }
+.outcome-card:nth-child(4) { animation-delay: 0.4s; }
+.outcome-card:nth-child(5) { animation-delay: 0.5s; }
+.outcome-card:nth-child(6) { animation-delay: 0.6s; }
+
+@media (max-width: 1024px) {
+    .outcomes-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-subtitle {
+        font-size: 1.1rem;
+        padding: 0 var(--spacing-md);
+    }
+
+    .outcome-card {
+        padding: var(--spacing-md);
+    }
+
+    .outcome-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Sticky CTA Styles */
+.sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-md);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-cta.visible {
+    transform: translateY(0);
+}
+
+.sticky-cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.sticky-cta-text {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.sticky-cta-text h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.sticky-price {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.sticky-price .original-price {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: line-through;
+    font-size: 1rem;
+}
+
+.sticky-price .final-price {
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.sticky-price .discount-badge {
+    background: var(--accent);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.sticky-cta .button-light {
+    background: var(--white);
+    color: var(--text-dark);
+    padding: 12px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sticky-cta .button-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Add Money-back Tag */
+.sticky-cta .money-back-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #00ff88;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .sticky-cta-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .sticky-cta-text {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .sticky-price {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sticky-cta .button-light {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer {
+        margin-bottom: 120px; /* More space for mobile sticky CTA */
+    }
 } 

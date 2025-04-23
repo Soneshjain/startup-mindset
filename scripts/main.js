@@ -87,4 +87,26 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.toggle('active');
         });
     });
+
+    const stickyCta = document.getElementById('sticky-cta');
+    const learningOutcomes = document.getElementById('outcomes');
+    const mainCta = document.querySelector('.cta');
+
+    function toggleStickyCta() {
+        const learningOutcomesTop = learningOutcomes.getBoundingClientRect().top;
+        const mainCtaTop = mainCta.getBoundingClientRect().top;
+        
+        // Show when past learning outcomes but before main CTA
+        if (learningOutcomesTop <= 0 && mainCtaTop > window.innerHeight) {
+            stickyCta.classList.add('visible');
+        } else {
+            stickyCta.classList.remove('visible');
+        }
+    }
+
+    // Check on scroll
+    window.addEventListener('scroll', toggleStickyCta);
+    
+    // Check on initial load
+    toggleStickyCta();
 }); 
